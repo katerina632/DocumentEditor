@@ -1,0 +1,13 @@
+C:\Users\User\Desktop\Задания\DocumentEditor\DocumentEditor\bin\Debug\DocumentEditor.exe.config
+C:\Users\User\Desktop\Задания\DocumentEditor\DocumentEditor\bin\Debug\DocumentEditor.exe
+C:\Users\User\Desktop\Задания\DocumentEditor\DocumentEditor\bin\Debug\DocumentEditor.pdb
+C:\Users\User\Desktop\Задания\DocumentEditor\DocumentEditor\obj\Debug\DocumentEditor.csprojAssemblyReference.cache
+C:\Users\User\Desktop\Задания\DocumentEditor\DocumentEditor\obj\Debug\MainWindow.baml
+C:\Users\User\Desktop\Задания\DocumentEditor\DocumentEditor\obj\Debug\MainWindow.g.cs
+C:\Users\User\Desktop\Задания\DocumentEditor\DocumentEditor\obj\Debug\App.g.cs
+C:\Users\User\Desktop\Задания\DocumentEditor\DocumentEditor\obj\Debug\DocumentEditor_MarkupCompile.cache
+C:\Users\User\Desktop\Задания\DocumentEditor\DocumentEditor\obj\Debug\DocumentEditor.g.resources
+C:\Users\User\Desktop\Задания\DocumentEditor\DocumentEditor\obj\Debug\DocumentEditor.Properties.Resources.resources
+C:\Users\User\Desktop\Задания\DocumentEditor\DocumentEditor\obj\Debug\DocumentEditor.csproj.GenerateResource.cache
+C:\Users\User\Desktop\Задания\DocumentEditor\DocumentEditor\obj\Debug\DocumentEditor.exe
+C:\Users\User\Desktop\Задания\DocumentEditor\DocumentEditor\obj\Debug\DocumentEditor.pdb
