@@ -8,10 +8,10 @@ namespace DocumentEditor
     internal sealed partial class MainWindow : Window
     {
         TextPointer startIndexPointer, endIndexPointer;
-        int startIndex=0, endIndex=0;
+        int startIndex = 0, endIndex = 0;
         public MainWindow()
         {
-            InitializeComponent();           
+            InitializeComponent();
 
         }
         private void boldButton_Click(object sender, RoutedEventArgs e)
@@ -39,7 +39,7 @@ namespace DocumentEditor
 
         private void fontSizeComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            if (textRun != null && fontSizeComboBox.SelectedIndex!=-1)
+            if (textRun != null && fontSizeComboBox.SelectedIndex != -1)
             {
                 double size = double.Parse(((ComboBoxItem)fontSizeComboBox.SelectedItem).Content.ToString());
                 GetSelectionText().ApplyPropertyValue(Run.FontSizeProperty, size);
@@ -50,11 +50,11 @@ namespace DocumentEditor
         {
             if (textRun != null && colorComboBox.SelectedIndex != -1)
             {
-                Color color=Colors.White;
+                Color color = Colors.White;
                 switch (colorComboBox.SelectedIndex)
                 {
                     case 0:
-                        color =Colors.Black;
+                        color = Colors.Black;
                         break;
                     case 1:
                         color = Colors.Blue;
@@ -83,7 +83,7 @@ namespace DocumentEditor
         }
 
         private void clearButton_Click(object sender, RoutedEventArgs e)
-        {    
+        {
             GetSelectionText().ApplyPropertyValue(Run.FontWeightProperty, FontWeights.Normal);
             GetSelectionText().ApplyPropertyValue(Run.FontStyleProperty, FontStyles.Normal);
             GetSelectionText().ApplyPropertyValue(Run.TextDecorationsProperty, null);
@@ -91,23 +91,40 @@ namespace DocumentEditor
             GetSelectionText().ApplyPropertyValue(Run.ForegroundProperty, new SolidColorBrush(Colors.Black));
         }
 
+        private void endTexBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (textRun == null)
+                return;
+            string line2 = endTexBox.Text.Trim();
+            if (int.TryParse(line2, out int endPos) && endPos >= startIndex && endPos < textRun.Text.Length - 1)
+            {
+                this.endIndex = endPos + 1;
+                ActivateOrDeactivate(true);
+            }           
+            else
+            {
+                ActivateOrDeactivate(false);
+            }
+        }
+
         private void startTexBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             if (textRun == null)
                 return;
 
-            startIndex = int.Parse(startTexBox.Text);
-            endIndex = int.Parse(endTexBox.Text);
 
-            if (startIndex <= endIndex && endIndex < textRun.Text.Length && startIndex >= 0 && endIndex >= 0)
+            string line1 = startTexBox.Text;
+
+            if (int.TryParse(line1, out int startPos) && startPos >= 0 && startPos <= endIndex - 1)
             {
-                //endIndex++;
+                this.startIndex = startPos;
                 ActivateOrDeactivate(true);
-            }
+            }            
             else
             {
                 ActivateOrDeactivate(false);
             }
+              
         }
 
         private void ActivateOrDeactivate(bool tb)
@@ -116,6 +133,6 @@ namespace DocumentEditor
             toolBar2.IsEnabled = tb;
             toolBar3.IsEnabled = tb;
         }
-        
+
     }
 }
